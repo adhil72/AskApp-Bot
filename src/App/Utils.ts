@@ -25,11 +25,5 @@ function filter(text: string) {
 
 }
 
-function extractTextFromAudio(audio: any) {
-    const audioContext = new AudioContext();
-    const audioElement = new Audio('audio.mp3');
-    const sourceNode = audioContext.createMediaElementSource(audioElement);
-
-}
 
 export default { extractTextFromImage }
