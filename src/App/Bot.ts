@@ -13,7 +13,7 @@ bot.command("clear",(ctx)=>{
 bot.on('message:text', async (ctx) => {
     const loadingProcess = await loadingMessage(ctx.chat.id)
     const prompt = `${database.read(ctx.chat.id)}\n\nUser:${ctx.message.text}\nBot:`
-    console.log(prompt);
+    console.log(ctx.chat.id," : ",ctx.message.text);
     const response = await OpenAi.generate(prompt)
     const message = loadingProcess.message()
     if (response=='') {
