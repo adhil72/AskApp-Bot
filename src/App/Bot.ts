@@ -27,7 +27,7 @@ bot.on('message:photo', async (ctx) => {
         responseType: 'stream'
     });
     r.data.pipe(createWriteStream(`./${ctx.chat.id}.png`)).on('finish', async () => {
-        let q = await utils.extract(readFileSync(`./${ctx.chat.id}.png`)) as string
+        let q = await utils.extractTextFromImage(readFileSync(`./${ctx.chat.id}.png`)) as string
 
 
         const prompt = `${database.read(ctx.chat.id)}\n\nUser:${q}\nBot:`

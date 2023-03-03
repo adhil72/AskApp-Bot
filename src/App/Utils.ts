@@ -1,7 +1,7 @@
 import { Tesseract } from "tesseract.ts";
 
 
-function extract(image: any) {
+function extractTextFromImage(image: any) {
     return new Promise((r) => {
         Tesseract
             .recognize(image)
@@ -13,14 +13,23 @@ function extract(image: any) {
     })
 }
 function filter(text: string) {
-    let scrs = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", ",", ".", "/", "?", "<", ">", ";", ":", "'", '"', "\\", "|", "[", "]", "{", "}", "`", "~"]
-    let filterText = text.split('\n').filter((v)=>{
-        if (!scrs.includes(v[0]) && v[0]!='') {
+    let scrs = ["!", "@", "#", "$", "%", "^", "&", "*", "_", "+", "-", "=", ",", ".", "/", "?", "<", ">", ";", ":", "'", '"', "\\", "|", "[", "]", "{", "}", "`", "~"]
+    let filterText = text.split('\n').filter((v) => {
+        if (!scrs.includes(v[0]) && v[0] != '') {
             return v
-        }else{
+        } else {
             return null
         }
     })
     return filterText.join(' ')
+
 }
-export default { extract }
+
+function extractTextFromAudio(audio: any) {
+    const audioContext = new AudioContext();
+    const audioElement = new Audio('audio.mp3');
+    const sourceNode = audioContext.createMediaElementSource(audioElement);
+
+}
+
+export default { extractTextFromImage }
