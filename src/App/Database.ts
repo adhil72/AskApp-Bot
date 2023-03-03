@@ -49,7 +49,7 @@ function getLastMessagesByChatId(chatId: number): string {
     // Filter the messages by the chat ID
     const filteredMessages = messages.filter(
         (message) => message.chatId === chatId
-    ).slice(0, 3)
+    ).slice(0, 5)
 
     let message = ''
     filteredMessages.map((m) => {
