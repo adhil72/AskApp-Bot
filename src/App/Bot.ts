@@ -15,7 +15,7 @@ bot.command("clear", (ctx) => {
 })
 bot.command("image", async (ctx) => {
 
-    let prompt = ctx.message.text.replace("image","")
+    let prompt = ctx.message.text.replace("/image","")
 console.log(prompt)
     const response = await OpenAi.image(prompt)
     ctx.reply(response)
