@@ -7,6 +7,15 @@ let openai: OpenAIApi = new OpenAIApi(new Configuration({
 }));
 
 export default {
+    image:async (text:string)=>{
+        const response = await openai.createImage({
+  prompt: text,
+  n: 1,
+  size: "300x300",
+});
+image_url = response.data.data[0].url;
+       return image_url 
+    }
     generate: async (prompt: string) => {
         const completion = await openai.createCompletion({
             model: 'text-davinci-003',
