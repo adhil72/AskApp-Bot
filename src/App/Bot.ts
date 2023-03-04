@@ -13,6 +13,13 @@ bot.command("clear", (ctx) => {
     database.clear(ctx.chat.id)
     ctx.reply('chat cleared')
 })
+bot.command("image", async (ctx) => {
+
+    let prompt = ctx.message.text.replace("image","")
+    const response = await OpenAi.image(prompt)
+    ctx.reply(response)
+
+})
 bot.on('message:photo', async (ctx) => {
     console.log('photo msg');
 
