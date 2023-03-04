@@ -11,7 +11,7 @@ export default {
         const response = await openai.createImage({
   prompt: text,
   n: 1,
-  size: "300x300",
+  size: "1024x1024",
 });
 image_url = response.data.data[0].url;
        return image_url 
