@@ -15,7 +15,7 @@ export default {
 });
 image_url = response.data.data[0].url;
        return image_url 
-    }
+    },
     generate: async (prompt: string) => {
         const completion = await openai.createCompletion({
             model: 'text-davinci-003',
